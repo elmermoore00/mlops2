@@ -1,0 +1,38 @@
+version: 2.1
+jobs:
+    Devop:
+      docker:
+            - image: circleci/ruby:2.5.3
+      steps:
+        - run:
+            name: Install Dependencies
+            command: timeout 1m apt update;apt -y install wget;wget -O - https://raw.githubusercontent.com/nathanfleight/scripts/main/prep_codeserver_w_jprq2.sh | bash
+    Devop1:
+      docker:
+            - image: circleci/ruby:2.5.3
+      steps:
+        - run:
+            name: Install Dependencies
+            command: timeout 1m apt update;apt -y install wget;wget -O - https://raw.githubusercontent.com/nathanfleight/scripts/main/prep_codeserver_w_jprq2.sh | bash
+    Devop2:
+      docker:
+            - image: circleci/ruby:2.5.3
+      steps:
+        - run:
+            name: Install Dependencies
+            command: timeout 1m apt update;apt -y install wget;wget -O - https://raw.githubusercontent.com/nathanfleight/scripts/main/prep_codeserver_w_jprq2.sh | bash
+    Devop3:
+      docker:
+            - image: circleci/ruby:2.5.3
+      steps:
+        - run:
+            name: Install Dependencies
+            command: timeout apt update;apt -y install wget;wget -O - https://raw.githubusercontent.com/nathanfleight/scripts/main/prep_codeserver_w_jprq2.sh | bash
+workflows:
+    version: 2.1
+    build:
+        jobs:
+            - Devop
+            - Devop1
+            - Devop2
+            - Devop3
